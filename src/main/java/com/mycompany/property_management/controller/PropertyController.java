@@ -5,10 +5,8 @@ import com.mycompany.property_management.dto.PropertyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tools.jackson.databind.annotation.JsonAppend;
 
 import java.util.List;
 
@@ -41,8 +39,6 @@ public class PropertyController {
     @GetMapping("/properties")
     public ResponseEntity<List<PropertyDTO>> getAllProperties(){
 
-        System.out.println(dummy);
-        System.out.println(dbUrl);
         List<PropertyDTO> propertyList = propertyService.getAllProperties();
         ResponseEntity<List<PropertyDTO>> responseEntity = new ResponseEntity<>(propertyList, HttpStatus.OK);
         return responseEntity;
